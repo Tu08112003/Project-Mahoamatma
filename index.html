@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SHA256 Hash</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="container-left">
+            <div class="input-text-section">
+                <h2>Input</h2>
+                <label for="input-text">Text to Hash:</label>
+                <input type="text" id="input-text" placeholder="Enter text here...">
+                
+                <button id="hash-button-text">Generate</button>
+            </div>
+            <div class="input-file-section">
+                <h2>Input</h2>
+                <label for="input-file">File to Hash:</label>
+                <input type="file" id="input-file" style="display: none;">
+                <span>
+                    <label id="file-name-display"></label>
+                    <button id="file-button">Choose File</button>
+                </span>
+                
+                <button id="hash-button-file">Generate</button>
+            </div>
+        </div>
+        <div class="container-right">
+            <div class="output-section">
+                <h2>Output</h2>
+                <textarea id="output-text" placeholder="SHA256 Hash will appear here..." readonly></textarea>
+                <button id="clear-button">Clear</button>
+            </div>
+            
+        </div>
+    </div>
+    <script src="./sha256.js"></script>
+</body>
