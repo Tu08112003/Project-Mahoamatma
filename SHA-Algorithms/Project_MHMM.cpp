@@ -3,14 +3,30 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <ctype.h>
 
 
 #define MAX_STRING_LENGTH 1024
 
 void inputText(char *str) {
-    printf("Nhap vao chuoi ma ban muon hash: ");
-    fgets(str, sizeof(str), stdin);
-    str[strcspn(str, "\n")] = '\0'; 
+	int isEmpty;
+	do{
+		printf("Nhap vao chuoi ma ban muon hash: ");
+	    fgets(str, sizeof(str), stdin);
+	    str[strcspn(str, "\n")] = '\0'; 
+	    isEmpty = 1;
+        for (int i = 0; i < strlen(str); i++) {
+            if (!isspace((unsigned char)str[i])) {
+                isEmpty = 0;
+                break;
+            }
+        }
+
+        if (isEmpty) {
+            printf("Chuoi khong duoc de trong. Vui long nhap lai!\n");
+        }
+    } while (isEmpty);
+    
 }
 
 void outputText(const char *algorithm, const char *str) {
@@ -1111,7 +1127,7 @@ int main() {
                 printf("%100s\n", "|  1. SHA-1                            |");
                 printf("%100s\n", "|  2. SHA-224 (SHA-2)                  |");
                 printf("%100s\n", "|  3. SHA-256 (SHA-2)                  |");
-                printf("%100s\n", "|  4. SHA-348 (SHA-512)                |");
+                printf("%100s\n", "|  4. SHA-384 (SHA-512)                |");
                 printf("%100s\n", "|  5. SHA-512 (SHA-512)                |");
                 printf("%100s\n", "|  6. SHA-512/224 (SHA-512)            |");
                 printf("%100s\n", "|  7. SHA-512/256 (SHA-512)            |");
@@ -1226,7 +1242,7 @@ int main() {
                 printf("%100s\n", "|  1. SHA-1                            |");
                 printf("%100s\n", "|  2. SHA-224 (SHA-2)                  |");
                 printf("%100s\n", "|  3. SHA-256 (SHA-2)                  |");
-                printf("%100s\n", "|  4. SHA-348 (SHA-512)                |");
+                printf("%100s\n", "|  4. SHA-384 (SHA-512)                |");
                 printf("%100s\n", "|  5. SHA-512 (SHA-512)                |");
                 printf("%100s\n", "|  6. SHA-512/224 (SHA-512)            |");
                 printf("%100s\n", "|  7. SHA-512/256 (SHA-512)            |");
